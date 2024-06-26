@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body class="text-white m-0 font-mono" style="background-image: url(./src/background.jpg); background-repeat: repeat; background-size: cover;">
+    <div class="flex justify-center items-center flex-col p-10 pb-0">
+        <div class="mb-5 flex">
+            <input type="text" name="search" id="search" class="rounded-full bg-white/15 outline-none w-full text-3xl p-2 pl-5 placeholder:text-white text-white" placeholder="Enter City Name">
+            <button type="submit" id="searchbut" class="rounded-full bg-white/15 outline-none" >enter</button>
+        </div>
+        <h1 class="text-3xl font-semibold capitalize m-2" id="city">city</h1>
+        <h1 class="text-7xl font-bold" id="temp">31C</h1>
+        <p id="details">details</p>
+    </div>
+    <div class="flex flex-col p-10 pt-0 px-20">
+        <p id="quote" class="text-lg text-center p-2"></p>
+        <p id="author" class="text-sm text-center underline"></p>
+    </div>
+
+    <div class="flex  h-max bottom-0 absolute w-full rounded-t-3xl p-10 bg-white/10 flex-col pb-36">
+        <div class="flex justify-between items-center ">
+            <div class="flex items-center w-40">
+                <img src="./src/32/humidity.png" class="object-cover pr-3 w-10 h-10">
+                <div>
+                    <h1 class="text-lg" id="humidity">45</h1>
+                    <h1 class="text-lg capitalize">humidity</h1>
+                </div>
+            </div>
+
+            <div class="flex items-center w-40">
+                <img src="./src/32/rain.png" class="object-cover pr-3 w-12 h-10">
+                <div>
+                    <h1 class="text-lg" id="rain">100</h1>
+                    <h1 class="text-lg capitalize">Precipitation</h1>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between px20 items-center my-5">
+            <div class="flex items-center w-40">
+                <img src="./src/32/wind.png" class="object-cover pr-3 w-12 h-10">
+                <div>
+                    <h1 class="text-lg" id="wind">9</h1>
+                    <h1 class="text-lg capitalize">wind</h1>
+                </div>
+            </div>
+
+            <div class="flex items-center w-40">
+                <img src="./src/32/clouds.png" class="object-cover pr-3 w-12 h-10">
+                <div>
+                    <h1 class="text-lg" id="clouds">45</h1>
+                    <h1 class="text-lg capitalize">clouds</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="module" src="./src/script.js"></script>
+</html>
