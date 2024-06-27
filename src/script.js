@@ -1,46 +1,46 @@
-// const getcity = () => {
-//     const city = document.getElementById("search");
-//     document.getElementById("city").innerHTML = city;
-// }
 
-const url = 'https://get-quotes-api.p.rapidapi.com/random';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': 'b6d8188466mshb0482507acaf996p15e27fjsn4dc140746277',
-		'x-rapidapi-host': 'get-quotes-api.p.rapidapi.com'
-	}
-};
+const city = document.querySelector("#search");
+const searchbut = document.querySelector("#searchbut")
 
-const search = document.querySelector("#search");
-const searchbut = document.querySelector("#searchbut");
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+document.querySelector("#date").innerHTML = `Today, ${day} ${months[month]} ${year}`;
 
 async function getWeather(city) {
     const weatherRes = await fetch("https://api.openweathermap.org/data/2.5/weather?units=metric&q="+ city + "&appid=" + "5abc15c8e09813fc0d5ddd2d9568c993");
     const weathers = await weatherRes.json();
     console.log(weathers);
-
-    document.querySelector("#search").placeholder = weathers.name;
-    document.querySelector("#city").innerHTML = weathers.weather[0].main;
-    document.querySelector("#temp").innerHTML = weathers.main.temp +"°C";
+    const temp = Math.round(weathers.main.temp)
+    document.querySelector("#city").innerHTML = weathers.name;
+    document.querySelector("#temp").innerHTML = temp +"°C";
+    document.querySelector("#temps").innerHTML = Math.round(weathers.main.temp) +"°C";
     document.querySelector("#wind").innerHTML = weathers.wind.speed +" km/h";
-    // document.querySelector("#rain").innerHTML = weather;
-
-    document.querySelector("#clouds").innerHTML = weathers.clouds.all;
     document.querySelector("#humidity").innerHTML = weathers.main.humidity + "%";
-    document.querySelector("#details").innerHTML = weathers.weather[0].description;
+    document.querySelector("#weather").innerHTML = weathers.weather[0].description;
+
+    switch (weathers.weather.main) {
+        case "Rain":
+            document.querySelector("#img").src = "./src/rain.png";
+            break;
+        case "Clouds":
+            document.querySelector("#img").src = "./src/clouds.png";
+            break;
+        case "Clear":
+            document.querySelector("#img").src = "./src/sun.png";
+            break;
+        case "Thunderstorm":
+            document.querySelector("#img").src = "./src/thunderstorm.png";
+            break;                            
+        default:
+            break;
+    }
 }
 
 searchbut.addEventListener("click", () => {
-    getWeather(search.value);
+    getWeather(city.value);
 })
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-    document.getElementById("quote").innerHTML = '"' + result.quote.quote + '"';
-    document.getElementById("author").innerHTML = '~' + result.quote.author;
-
-} catch (error) {
-	console.error(error);
-}

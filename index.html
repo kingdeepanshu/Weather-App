@@ -3,61 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Application</title>
+    <title>home</title>
     <link rel="stylesheet" href="./src/output.css">
 </head>
-<body class="text-white m-0 font-mono" style="background-image: url(./src/background.jpg); background-repeat: repeat; background-size: cover;">
-    <div class="flex justify-center items-center flex-col p-10 pb-0">
-        <div class="mb-5 flex">
-            <input type="text" name="search" id="search" class="rounded-full bg-white/15 outline-none w-full text-3xl p-2 pl-5 placeholder:text-white text-white" placeholder="Enter City Name">
-            <button type="submit" id="searchbut" class="rounded-full bg-white/15 outline-none" >enter</button>
+<body class="font-mono m-0 bg-slate-800 text-white">
+    <div class="w-[400px] h-[730px] bg-gradient-to-b from-[#49bce3] to-[#4b9afa] rounded-lg m-auto my-6">
+        <div id="searchbar" class="flex justify-center items-center p-10">
+            <input type="text" name="search" id="search" class="w-2/3 bg-inherit border-b-2 outline-none mr-3 cursor-text text-white placeholder:text-white p-2 capitalize" placeholder="Search Your City Here">
+            <button id="searchbut"><i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i></button>
         </div>
-        <h1 class="text-3xl font-semibold capitalize m-2" id="city">city</h1>
-        <h1 class="text-7xl font-bold" id="temp">31C</h1>
-        <p id="details">details</p>
-    </div>
-    <div class="flex flex-col p-10 pt-0 px-20">
-        <p id="quote" class="text-lg text-center p-2"></p>
-        <p id="author" class="text-sm text-center underline"></p>
-    </div>
 
-    <div class="flex  h-max bottom-0 absolute w-full rounded-t-3xl p-10 bg-white/10 flex-col pb-36">
-        <div class="flex justify-between items-center ">
-            <div class="flex items-center w-40">
-                <img src="./src/32/humidity.png" class="object-cover pr-3 w-10 h-10">
-                <div>
-                    <h1 class="text-lg" id="humidity">45</h1>
-                    <h1 class="text-lg capitalize">humidity</h1>
-                </div>
-            </div>
+        <h1 class="text-center text-5xl" id="city">City</h1>
 
-            <div class="flex items-center w-40">
-                <img src="./src/32/rain.png" class="object-cover pr-3 w-12 h-10">
-                <div>
-                    <h1 class="text-lg" id="rain">100</h1>
-                    <h1 class="text-lg capitalize">Precipitation</h1>
-                </div>
-            </div>
+
+        <div class="relative w-2/6 m-auto my-10 ">
+            <img src="./src/sun.png" alt="" class="absolute w-full inset-0 shadow blur-sm object-cover" id="img">
+            <img src="./src/sun.png" alt="" class="relative w-full object-cover" id="imgs">
         </div>
-        <div class="flex justify-between px20 items-center my-5">
-            <div class="flex items-center w-40">
-                <img src="./src/32/wind.png" class="object-cover pr-3 w-12 h-10">
-                <div>
-                    <h1 class="text-lg" id="wind">9</h1>
-                    <h1 class="text-lg capitalize">wind</h1>
+
+
+        <div class="h-[300px] w-[300px] border-2 rounded-lg bg-white/10 m-auto flex flex-col justify-around items-center">
+            <h1 id="date" class="">Today, 21 june</h1>
+            <div class="flex flex-col items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 text-7xl text-black/35 blur-sm" id="temps">42°C</div>
+                    <div class="relative text-7xl" id="temp">42°C</div>
+                  </div>
+                <h1 id="weather" class="">weather</h1>
+            </div>
+
+            <div>
+                <div class="flex justify-center items-center my-2 w-[220px]">
+                    <div class="w-1/2 flex items-center justify-between mr-3">
+                        <i class="fa-solid fa-wind fa-lg" style="color: #ffffff;"></i>
+                    <h1 class="text-right">Wind</h1>
+                    </div>
+                    <h1 class="w-1/2 text-center border-l-2" id="wind">23</h1>
+                </div>
+                <div class="flex justify-center items-center my-2 w-[220px]">
+                    <div class="w-1/2 flex items-center justify-between mr-3">
+                        <i class="fa-solid fa-droplet fa-lg" style="color: #ffffff;"></i>
+                        <h1 class="text-right">Humidity</h1>
+                    </div>
+                    <h1 class="w-1/2 text-center border-l-2" id="humidity">23</h1>
                 </div>
             </div>
 
-            <div class="flex items-center w-40">
-                <img src="./src/32/clouds.png" class="object-cover pr-3 w-12 h-10">
-                <div>
-                    <h1 class="text-lg" id="clouds">45</h1>
-                    <h1 class="text-lg capitalize">clouds</h1>
-                </div>
-            </div>
         </div>
-    </div>
 
+    </div>
 </body>
-<script type="module" src="./src/script.js"></script>
+<script src="https://kit.fontawesome.com/0b8232a921.js" crossorigin="anonymous"></script>
+<script type="module" src="./src/home.js"></script>
 </html>
