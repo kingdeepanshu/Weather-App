@@ -22,18 +22,22 @@ async function getWeather(city) {
     document.querySelector("#humidity").innerHTML = weathers.main.humidity + "%";
     document.querySelector("#weather").innerHTML = weathers.weather[0].description;
 
-    switch (weathers.weather.main) {
+    switch (weathers.weather[0].main) {
         case "Rain":
             document.querySelector("#img").src = "./src/rain.png";
+            document.querySelector("#imgs").src = "./src/rain.png";
             break;
         case "Clouds":
             document.querySelector("#img").src = "./src/clouds.png";
+            document.querySelector("#imgs").src = "./src/clouds.png";
             break;
         case "Clear":
             document.querySelector("#img").src = "./src/sun.png";
+            document.querySelector("#imgs").src = "./src/sun.png";
             break;
         case "Thunderstorm":
             document.querySelector("#img").src = "./src/thunderstorm.png";
+            document.querySelector("#imgs").src = "./src/thunderstorm.png";
             break;                            
         default:
             break;
